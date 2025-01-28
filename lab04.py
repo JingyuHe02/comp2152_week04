@@ -128,7 +128,7 @@ input("Roll the dice for your weapon (Press enter)")
 weaponRoll = random.choice(diceOptions)
 
 # Max out the combat strength at 6
-combat_strength = min(6, (combat_strength + weaponRoll))
+combat_strength = min(range, (combat_strength + weaponRoll))
 print("The hero\'s weapon is " + str(weapons[weaponRoll - 1]))
 
 # Weapon Roll Analysis
@@ -173,6 +173,18 @@ print("Your belt: ", belt)
 print("You're neat, so organize your belt alphabetically")
 belt.sort()
 print("Your belt: ", belt) 
+
+#Lab04 Q8 - use the belt
+print("you see a monster in the distance! So, quicly use your first item:")
+first_item = belt.pop(0)
+if first_item in good_loot_options:
+    health_points = min(6, (health_points + 2))
+    print("You used the " + first_item + " to hurt your health to " + str(health_points))
+elif first_item in bad_loot_options:
+    health_points = max(0, (health_points - 2))
+    print("You used the " + first_item + " to hurt your health to " + str(health_points))    
+else:
+    print("You used the " + first_item + " but it had no helpful")    
 
 input("Analyze the roll (Press enter)")
 # Compare Player vs Monster's strength
